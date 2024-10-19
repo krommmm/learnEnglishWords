@@ -16,7 +16,9 @@ const Header = () => {
                     <p>Envie d'apprendre du vocabulaire ?</p>
                 </div>
                 <div className="header__right__profilArea">
-                    <img src={avatarVierge} alt="logo avatar" />
+                    <NavLink className="nav__iconContainer" to="/profil">
+                        <img src={avatarVierge} alt="logo avatar" />
+                    </NavLink>
                 </div>
 
             </div>

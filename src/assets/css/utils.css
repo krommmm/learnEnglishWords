@@ -6,12 +6,35 @@
     width: 50px;
     height: 50px;
     font-weight: 600;
-    cursor:pointer;
+    cursor: pointer;
+    position:relative;
+    z-index:10;
 }
 
-.bgGreen{
+.bgGreen {
     background-color: rgb(16, 132, 68);
 }
-a{
-    text-decoration:none;
+
+a {
+    text-decoration: none;
+}
+
+@font-face {
+    font-family: dragon;
+    src: url("../fonts/Dragon\ FREE.otf");
+}
+
+.btn {
+    background-color: red;
+    color: white;
+    border-radius: 7px;
+    padding: 13px;
+    display: inline-block;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition-duration:.8s;
+}
+.btn:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }

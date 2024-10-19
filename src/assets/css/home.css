@@ -2,5 +2,53 @@
     background-image: url("../pictures/bg/bg_london.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    width:100%;
+    background-position: bottom;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-family: dragon;
+    font-size: 57px;
+    width: 400px;
+}
+
+.home__top {
+    margin-left: 50px;
+}
+
+.home__top__logo p {
+    color: white;
+}
+
+.home__botttom__league {
+    position: relative;
+}
+
+.home__botttom {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    width: 600px;
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, .7);
+    padding: 50px;
+    align-self: center;
+    border: 2px solid white;
+}
+
+.home__botttom__league img {
+    float: right;
+    width: 125px;
+}
+
+.home__botttom__league .btn {
+    font-weight: 600;
+    cursor: pointer;
+    position: absolute;
+    bottom: 42px;
+    left: 61px;
 }

@@ -14,11 +14,19 @@ nav {
 
 .nav__iconContainer {
     margin: 6px;
+    border-radius:15px;
+    transition-duration:.8s;
+    z-index:10;
+}
+.nav__iconContainer:hover{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    border-radius:30px;
 }
 
 .nav__iconContainer img {
     width: 50px;
     height: 50px;
+    border: 3px solid white;
 }
 
 nav .SeparationOptions {
@@ -27,6 +35,8 @@ nav .SeparationOptions {
 
 nav a {
     text-decoration: none;
+    z-index:0;
+
 }
 
 .bgBlue{
@@ -86,4 +96,5 @@ nav a:hover ~ .nav__description{
     border-style: solid;
     border-width: 10px 20px 10px 0;
     border-color: transparent rgb(17,18,20) transparent transparent;
+    z-index:0;
 }

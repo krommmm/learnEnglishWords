@@ -1,0 +1,89 @@
+nav {
+    width: 73px;
+    height: 100vh;
+    background-color: rgb(30, 31, 34);
+    display: flex;
+    flex-direction: column;
+    color: white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.nav__iconContainer {
+    margin: 6px;
+}
+
+.nav__iconContainer img {
+    width: 50px;
+    height: 50px;
+}
+
+nav .SeparationOptions {
+    margin-top: 50px;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+.bgBlue{
+    background-color: rgb(16, 81, 179);
+}
+
+.bgGreenPal {
+    background-color: rgb(16, 179, 150)
+}
+
+.bgBordeaux {
+    background-color: rgb(179, 16, 81);
+}
+
+.bgCramoisi {
+    background-color: rgb(179, 81, 16);
+}
+
+.bgJaune {
+    background-color: rgb(179, 150, 16);
+}
+
+nav>div {
+    display: flex;
+    position: relative;
+}
+
+nav a:hover ~ .nav__description{
+    display:flex;
+}
+
+.nav__description {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: -92px;
+    top: 7px;
+    background-color:  rgb(17,18,20);
+    padding: 15px;
+    font-weight: 600;
+    border-radius:5px;
+    display:none;
+}
+
+.nav__description::before {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 15px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 20px 10px 0;
+    border-color: transparent rgb(17,18,20) transparent transparent;
+}

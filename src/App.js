@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import "./assets/css/index.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/reusables/Header";
+import Home from "./components/pages/Home";
+import Suivi from "./components/pages/Suivi";
+import Nav from "./components/reusables/Nav";
+import Options from "./components/pages/Options";
+import Times from "./components/pages/Times";
+import Words from "./components/pages/Words";
+import Verbes from "./components/pages/Verbe";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router> {/* Ajoute BrowserRouter ici */}
+      <Header />
+      <main>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/words" element={<Words />} />
+          <Route path="/suivi" element={<Suivi />} />
+          <Route path="/options" element={<Options />} />
+          <Route path="/words" element={<Words />} />
+          <Route path="/times" element={<Times />} />
+          <Route path="/verbes" element={<Verbes />} />
+        </Routes>
+      </main>
+    </Router>
   );
 }
 

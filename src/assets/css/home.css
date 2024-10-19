@@ -1,0 +1,6 @@
+.home {
+    background-image: url("../pictures/bg/bg_london.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    width:100%;
+}

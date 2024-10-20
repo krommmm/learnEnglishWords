@@ -1,0 +1,22 @@
+export const internalBodyPartsData = [
+    { "id": 20000, "frName": "cerveau", "ukName": "brain" },
+    { "id": 20001, "frName": "cœur", "ukName": "heart" },
+    { "id": 20002, "frName": "poumon", "ukName": "lung" },
+    { "id": 20003, "frName": "foie", "ukName": "liver" },
+    { "id": 20004, "frName": "rein", "ukName": "kidney" },
+    { "id": 20005, "frName": "estomac", "ukName": "stomach" },
+    { "id": 20006, "frName": "intestin grêle", "ukName": "small intestine" },
+    { "id": 20007, "frName": "gros intestin", "ukName": "large intestine" },
+    { "id": 20008, "frName": "pancréas", "ukName": "pancreas" },
+    { "id": 20009, "frName": "rate", "ukName": "spleen" },
+    { "id": 20010, "frName": "vessie", "ukName": "bladder" },
+    { "id": 20011, "frName": "œsophage", "ukName": "esophagus" },
+    { "id": 20012, "frName": "thyroïde", "ukName": "thyroid" },
+    { "id": 20013, "frName": "trachée", "ukName": "trachea" },
+    { "id": 20014, "frName": "vésicule biliaire", "ukName": "gallbladder" },
+    { "id": 20015, "frName": "appendice", "ukName": "appendix" },
+    { "id": 20016, "frName": "rectum", "ukName": "rectum" },
+    { "id": 20017, "frName": "utérus", "ukName": "uterus" },
+    { "id": 20018, "frName": "ovaires", "ukName": "ovaries" },
+    { "id": 20019, "frName": "prostate", "ukName": "prostate" }
+];

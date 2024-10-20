@@ -11,7 +11,7 @@ import Verbes from "./components/pages/Verbe";
 
 function App() {
   return (
-    <Router> {/* Ajoute BrowserRouter ici */}
+    <Router> 
       <Header />
       <main>
         <Nav />

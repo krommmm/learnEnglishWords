@@ -37,4 +37,7 @@ main {
 .times,
 .words {
     padding: 30px;
+    width:100%;
+    display:flex;
+    flex-direction:column;
 }

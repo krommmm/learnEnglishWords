@@ -197,3 +197,7 @@
     display: none;
     color: rgb(35,165,90);
 }
+
+.avatarSelected{
+    border: 3px solid rgb(63, 155, 106);
+}

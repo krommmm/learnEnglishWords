@@ -54,4 +54,7 @@
     body .home__botttom__league img {
         display: none;
     }
+    body .modalProfil_contenent{
+        width: 90%;
+    }
 }

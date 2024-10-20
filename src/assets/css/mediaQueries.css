@@ -38,14 +38,20 @@
     }
 }
 
-@media screen and (max-width:632px){
- .home__botttom{
-    width:90%;
- }
+@media screen and (max-width:632px) {
+    .home__botttom {
+        width: 90%;
+    }
+
+    body .home__top__logo h1 {
+        width: auto;
+        font-size: 41px;
+        color: #e82626;
+    }
 }
 
-@media screen and (max-width:532px){
-    body .home__botttom__league img{
-        display:none;
+@media screen and (max-width:532px) {
+    body .home__botttom__league img {
+        display: none;
     }
 }

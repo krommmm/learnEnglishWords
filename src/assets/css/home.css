@@ -22,7 +22,7 @@ h1 {
     color: white;
 }
 
-.home__botttom__league {
+.home__botttom{
     position: relative;
 }
 
@@ -42,13 +42,14 @@ h1 {
 
 .home__botttom__league img {
     float: right;
-    width: 125px;
+    width: 345px;
 }
 
 .home__botttom__league .btn {
     font-weight: 600;
     cursor: pointer;
-    position: absolute;
+    /* position: absolute;
     bottom: 42px;
-    left: 61px;
+    left: 61px; */
+    margin-top: 27px;
 }

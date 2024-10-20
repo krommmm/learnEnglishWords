@@ -32,7 +32,6 @@ a {
     display: inline-block;
     font-weight: 600;
     cursor: pointer;
-    margin-top: 15px;
     transition-duration:.8s;
 }
 .btn:hover{

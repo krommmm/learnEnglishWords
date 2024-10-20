@@ -8,8 +8,6 @@ import Options from "./components/pages/Options";
 import Times from "./components/pages/Times";
 import Words from "./components/pages/Words";
 import Verbes from "./components/pages/Verbe";
-import Profil from "./components/pages/Profil";
-
 
 function App() {
   return (
@@ -25,7 +23,6 @@ function App() {
           <Route path="/words" element={<Words />} />
           <Route path="/times" element={<Times />} />
           <Route path="/verbes" element={<Verbes />} />
-          <Route path="/profil" element={<Profil />} />
         </Routes>
       </main>
     </Router>

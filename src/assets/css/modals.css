@@ -1,0 +1,199 @@
+/* MODAL PROFIL */
+
+
+
+.modalProfil {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.modalProfil_contenent {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(54, 58, 63);
+    border-radius: 5px;
+}
+
+.modalProfil_contenent .description {
+    font-size: 13px;
+    margin: 5px 0px;
+}
+
+.menu i {
+    margin: 10px;
+    color: rgb(137, 141, 147);
+    cursor: pointer;
+}
+
+.modalProfil_contenent .menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modalProfil_contenent .content {
+    padding: 15px;
+}
+
+.modalProfil_contenent h2 {
+    margin-bottom: 50px;
+}
+
+.modalProfil__avatars {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.modalProfil__avatars img {
+    cursor: pointer;
+    width: 70px;
+    height: 70px;
+}
+
+.modalProfil_contenent__restart {
+    display: flex;
+    align-items: center;
+}
+
+.modalProfil_contenent__validation {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgb(47, 49, 53);
+    padding: 25px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.modalProfil_contenent__validation .btn {
+    margin-left: 15px;
+}
+
+.modalProfil_contenent__validation div {
+    cursor: pointer;
+}
+
+.restart_container {
+    width: 41px;
+    height: 23px;
+    border-radius: 15px;
+    background-color: rgb(113, 117, 123);
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    cursor: pointer;
+}
+
+
+
+.animationBallContainerBack{
+    animation-duration:.4s;
+    animation-name: validationBallContainerBack;
+    animation-fill-mode: forwards;
+}
+.animationBallContainer{
+    animation-duration:.4s;
+    animation-name: validationBallContainer;
+    animation-fill-mode: forwards;
+}
+@keyframes validationBallContainer {
+    0% {
+        background-color: rgb(113, 117, 123);
+    }
+
+    50% {
+        background-color: rgb(63, 155, 106);
+    }
+
+    100% {
+        background-color: rgb(35,165,90);
+    }
+}
+@keyframes validationBallContainerBack {
+    0% {
+        background-color: rgb(35,165,90);
+    }
+
+    50% {
+        background-color: rgb(63, 155, 106);
+    }
+
+    100% {
+        background-color: rgb(113, 117, 123);
+    }
+}
+.restart_container .ball {
+    background-color: white;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    margin-left: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-duration:.4s;
+}
+.animationBall{
+    animation-name: validationBall;
+    animation-fill-mode: forwards;
+}
+.animationBallBack{
+    animation-name: validationBallBack;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes validationBall {
+    0% {
+        color: white;
+    }
+
+    50% {
+        width: 23px;
+        transform:translateX(10px);
+    }
+
+    100% {
+        transform:translateX(18px);
+        width: 15px;
+    }
+}
+@keyframes validationBallBack {
+    0% {
+        transform:translateX(18px);
+        width: 15px;
+   
+    }
+
+    50% {
+        width: 23px;
+        transform:translateX(10px);
+    }
+
+    100% {
+        color: white;
+    }
+}
+
+
+.ball i {
+    font-size: 10px;
+    color: rgb(113, 117, 123);
+}
+
+.ball .fa-minus {
+    display: none;
+    color: rgb(63, 155, 106);
+}
+
+.ball .fa-check {
+    display: none;
+    color: rgb(35,165,90);
+}

@@ -25,14 +25,12 @@ a {
 }
 
 .btn {
-    background-color: red;
-    color: white;
-    border-radius: 7px;
-    padding: 13px;
+    background-color:rgb(112,137,217);
+    padding: 10px;
+    border-radius: 3px;
+    font-weight:600;
     display: inline-block;
-    font-weight: 600;
     cursor: pointer;
-    transition-duration:.8s;
 }
 .btn:hover{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;

@@ -12,7 +12,7 @@ const Header = () => {
         <header>
             <div className="header__left">
                 <NavLink className="nav__iconContainer bgBlue" to="/">
-                    <i class="fa-solid fa-igloo squareIcon bgGreen"></i>
+                    <i className="fa-solid fa-igloo squareIcon bgGreen"></i>
                 </NavLink>
             </div>
             <div className="header__right">
@@ -23,9 +23,8 @@ const Header = () => {
                 <div className="header__right__profilArea">
 
                     <img src={avatarVierge} onClick={() => setIsClicked(true)} alt="logo avatar" />
-                    {isClicked && <ModalProfil />}
-
-
+                    {isClicked && <ModalProfil toogle={setIsClicked} isClicked={isClicked}/>}
+                    
                 </div>
 
             </div>

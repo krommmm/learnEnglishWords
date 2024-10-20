@@ -9,7 +9,7 @@
 
 }
 
-@media screen and (max-width:700px) {
+@media screen and (max-width:730px) {
 
     .home,
     .options,
@@ -22,5 +22,30 @@
 
     body nav {
         display: none;
+    }
+
+    body .words__categories {
+        justify-content: center;
+    }
+
+    body .words {
+        display: flex;
+        align-items: center;
+    }
+
+    body .flashCards {
+        width: 90%;
+    }
+}
+
+@media screen and (max-width:632px){
+ .home__botttom{
+    width:90%;
+ }
+}
+
+@media screen and (max-width:532px){
+    body .home__botttom__league img{
+        display:none;
     }
 }

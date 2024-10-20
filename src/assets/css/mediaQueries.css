@@ -1,0 +1,24 @@
+@media screen and (max-width:964px) {
+    body .flashCards__left {
+        display: none;
+    }
+
+    body .flashCards__right {
+        width: 100%;
+    }
+    body nav{
+      
+    }
+}
+
+@media screen and (max-width:700px) {
+
+    .home,
+    .options,
+    .suivi,
+    .verbe,
+    .times,
+    .words {
+        padding: 15px;
+    }
+}

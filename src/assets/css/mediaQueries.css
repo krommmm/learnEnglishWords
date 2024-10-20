@@ -36,6 +36,22 @@
     body .flashCards {
         width: 90%;
     }
+
+    body .header__right__logoArea p {
+        display: none;
+    }
+
+    body .fa-bars {
+        display: flex;
+        margin-right: 10px;
+        cursor:pointer;
+    }
+
+    body .header__right__profilArea {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }
 
 @media screen and (max-width:632px) {
@@ -54,7 +70,8 @@
     body .home__botttom__league img {
         display: none;
     }
-    body .modalProfil_contenent{
+
+    body .modalProfil_contenent {
         width: 90%;
     }
 }

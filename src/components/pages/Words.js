@@ -1,34 +1,32 @@
 import FlashCards from "../reusables/FlashCards";
-
 import { useState, useEffect, useRef } from "react";
 
-
-
 const Words = (props) => {
-    const [toggle, setToggle] = useState(false);
     const imgRef = useRef(null);
-    const [currentCategory, setCurrentCategory] = useState([]);
-    const [isCategoryChoosen, setIsCategoryChoosen] = useState(false);
+    const [categories, setCategories] = useState(props.categories);
+    const [category, setCategory] = useState(props.categories[0]);
+    const [length, setLength] = useState(0);
+    const [categoryChoice, setCategoryChoice] = useState(false);
+    const [fcStatus, setFcStatus] = useState(false);
+    const [showTranslation, setShowTranslation] = useState(false);
 
+    useEffect(()=>{
 
-    const categories = props.categories;
-
-
-    useEffect(() => {
-        const category = categories[0];
-        setCurrentCategory(category);
-        setIsCategoryChoosen(true);
-    }, [isCategoryChoosen]);
+    },[]);
 
     function handleClickImg(e) {
-        const name = e.target.closest(".words__categories__category").dataset.category;
-        const category = categories.find((category) => category.name === name);
-        setCurrentCategory(category);
-        console.log(category);
-        if (category && imgRef.current) {
-            imgRef.current.src = category.imgUrl;
-        }
-        setIsCategoryChoosen(true);
+        // Definit le tableau de category 
+        const categoryName = e.target.closest(".words__categories__category").dataset.category;
+        const currentCategory = categories.find((category) => category.name === categoryName);
+        setCategory(currentCategory);
+        // UI l'image de la category
+        imgRef.current.src = currentCategory.imgUrl;
+        // reset le fcStatus à false
+        setFcStatus(false);
+        // reset de la length à 0
+        setLength(0);
+        // reset de la translation
+        setShowTranslation(false);
     }
 
     return (
@@ -41,7 +39,7 @@ const Words = (props) => {
                     <div key={category.name}
                         className="words__categories__category"
                         data-category={category.name}
-                        onClick={handleClickImg}>
+                        onClick={(e) => handleClickImg(e)}>
                         <img src={category.imgUrl} alt="" />
                     </div>
                 ))}
@@ -50,9 +48,10 @@ const Words = (props) => {
 
             <div className="flashCards">
                 <div className="flashCards__left">
-                    <img src={categories[0].imgUrl} ref={imgRef} alt="img tigre" />
+                    <img src={categories[0].imgUrl} ref={imgRef} alt="img category" />
                 </div>
-                {isCategoryChoosen && <FlashCards category={currentCategory} numImg="1" isVisible={false} />}
+                <FlashCards category={category} fcStatus={fcStatus} length={length} categoryChoice={categoryChoice} showTranslation={showTranslation}
+                 backLength={setLength} backFsStatus={setFcStatus} backTranslation={setShowTranslation} />
             </div>
         </div>
     );

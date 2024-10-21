@@ -1,6 +1,6 @@
 import "./assets/css/index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import {useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import Header from "./components/reusables/Header";
 import Home from "./components/pages/Home";
@@ -69,7 +69,7 @@ import { cinemaData } from "./data/cinemaData";
 
 function App() {
 
-  const [categories, setCategories] = useState([ 
+  const [categories, setCategories] = useState([
     { name: "animals", data: animalsData, imgUrl: tigre },
     { name: "bedrooms", data: bedroomData, imgUrl: bedroom },
     { name: "clothings", data: clothingData, imgUrl: cloths },
@@ -99,14 +99,24 @@ function App() {
     { name: "cinema", data: cinemaData, imgUrl: cinema }]);
 
 
+  useEffect(() => {
+    categories.forEach((category) => {
+      return category.data.forEach((dataCat) => {
+        dataCat.validation = false;
+      })
+    })
+
+    setCategories(categories);
+  }, []);
+
   return (
-    <Router> 
+    <Router>
       <Header />
       <main>
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/words" element={<Words  categories={categories} backCategories={setCategories}/>} />
+          <Route path="/words" element={<Words categories={categories} backCategories={setCategories} />} />
           <Route path="/suivi" element={<Suivi />} />
           <Route path="/options" element={<Options />} />
           <Route path="/words" element={<Words />} />

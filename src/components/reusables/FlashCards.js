@@ -1,53 +1,67 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 const FlashCards = (props) => {
 
-    const [length, setLength] = useState(1);
-    const [showTranslation, setShowTranslation] = useState(false);
-    const flashContainerRef = useRef(null);
-    const [isStarted, setIsStarted] = useState(false);
+    const [fcStatus, setFcStatus] = useState(); // btn start ou flashCard
+    const [length, setLength] = useState();
+    const [category, setCategory] = useState();
+    const [showTranslation, setShowTranslation] = useState(); // montrer la traduction ou pas
+    const [categoryChoice, setCategoryChoice] = useState();
+
 
     useEffect(() => {
-        setLength(parseInt(props.numImg));
-        setIsStarted(props.isVisible);
+        setFcStatus(props.fcStatus);
+        setCategory(props.category);
+        setLength(props.length);
+        setCategoryChoice(props.categoryChoice);
+        setShowTranslation(props.showTranslation);
     }, [props]);
 
-    function handleSubmit() {
-        if (length + 1 < props.category.data.length) {
-            setLength(length + 1);
-        }
-        if (length + 1 === props.category.data.length) {
-            setLength(1);
-            setIsStarted(false);
-        }
+
+
+
+    // useEffect(() => {
+    //     setCurrentCategory(props.category);
+    //     setLength(parseInt(props.numImg));
+    //     props.backIsVisible(isStarted);
+    //     //setIsStarted(props.isVisible);
+    // }, [props]);
+
+    function handleYes() {
         setShowTranslation(false);
+        props.backLength(length + 1);
+        props.backFsStatus(true);
+
+        if(length+1===category.data.length){
+              props.backFsStatus(false);
+        }
+      
+
+        // if (length + 1 < currentCategory.data.length) {
+
+        //     props.backNumImg(length);
+
+        //     const category = currentCategory.data;
+        //     category[length].validation = true;
+        //     props.backCurrentCategory(category);
+        // }
+        // if (length + 1 === currentCategory.data.length) {
+
+        //     props.backNumImg(length);
+        //     setIsStarted(false);
+        // }
+        // setShowTranslation(false);
     }
 
     function handleClick(e) {
         setShowTranslation(true);
-        speak(props.category.data[length].ukName);
-    }
-
-    function pass() {
-        // const heartBeat = "https://universal-soundbank.com/sounds/350.mp3";
-        // const magneto = "https://universal-soundbank.com/sounds/3802.mp3";
-        // const clacquement = "https://universal-soundbank.com/sounds/2166.mp3";
-        // const audio = new Audio();
-        // audio.src = clacquement;
-        // audio.volume = 0.1; 
-        // audio.play();
+        speak(category.data[length].ukName);
     }
 
     function speak(text) {
-
-        // Vérifier si le navigateur supporte l'API Web Speech
         if ('speechSynthesis' in window) {
-            // Créer une instance de SpeechSynthesisUtterance
             const utterance = new SpeechSynthesisUtterance(text);
-            // Définir la langue sur anglais
             utterance.lang = 'en-GB';
-
-            // Utiliser speechSynthesis pour prononcer le texte
             window.speechSynthesis.speak(utterance);
         } else {
             alert('Sorry, your browser does not support speech synthesis.');
@@ -60,23 +74,22 @@ const FlashCards = (props) => {
 
     return (
         <div className="flashCards__right">
-
-            {isStarted ? (<div className="flashcards__right__container" ref={flashContainerRef}>
-                <div className="flashCards__right__header">Page {length}/{props.category.data.length - 1}</div>
+            {fcStatus ? (<div className="flashcards__right__container">
+                <div className="flashCards__right__header">Page {length + 1}/{category.data.length}</div>
                 <div className="flashCards__right__main" onClick={(e) => handleClick(e)}>
-                    {showTranslation ? props.category.data[length].ukName : props.category.data[length].frName}
+                    {showTranslation ? category.data[length].ukName : category.data[length].frName}
                     <br />
-                    {showTranslation ? `${props.category.data[length].frName}*` : ""}
+                    {showTranslation ? `${category.data[length].frName}*` : ""}
                 </div>
                 <div className="flashCards__right__bottom">
                     <p>Do you want to continue ?</p>
                     <div className="flashCardsAnswer">
                         <div className="btn" onClick={(e) => handleFaillure(e)}>No</div>
-                        <div className="btn" onClick={(e) => handleSubmit(e)}>Yes</div>
+                        <div className="btn" onClick={(e) => handleYes(e)}>Yes</div>
                     </div>
                 </div>
             </div>) : (<div>
-                <div class="btn" onClick={() => setIsStarted(true)}>Start</div>
+                <div className="btn" onClick={() => setFcStatus(true)}>Start</div>
             </div>)}
 
 

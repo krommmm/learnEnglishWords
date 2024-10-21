@@ -11,7 +11,6 @@ import Times from "./components/pages/Times";
 import Words from "./components/pages/Words";
 import Verbes from "./components/pages/Verbe";
 
-
 import tigre from "./assets/pictures/category/tigre.jpg";
 import bedroom from "./assets/pictures/category/bedroom.jpg";
 import cloths from "./assets/pictures/category/cloths.jpg";
@@ -98,6 +97,7 @@ function App() {
     { name: "tools", data: toolsData, imgUrl: tools },
     { name: "travelTerms", data: travelTermsData, imgUrl: travelTerms },
     { name: "cinema", data: cinemaData, imgUrl: cinema }]);
+
 
   return (
     <Router> 

@@ -5,18 +5,20 @@ const FlashCards = (props) => {
     const [length, setLength] = useState(1);
     const [showTranslation, setShowTranslation] = useState(false);
     const flashContainerRef = useRef(null);
+    const [isStarted, setIsStarted] = useState(false);
 
-    useEffect(()=>{
+    useEffect(() => {
         setLength(parseInt(props.numImg));
-    },[props]);
+        setIsStarted(props.isVisible);
+    }, [props]);
 
     function handleSubmit() {
         if (length + 1 < props.category.data.length) {
             setLength(length + 1);
         }
-        if(length+1===props.category.data.length){
+        if (length + 1 === props.category.data.length) {
             setLength(1);
-           
+            setIsStarted(false);
         }
         setShowTranslation(false);
     }
@@ -52,27 +54,32 @@ const FlashCards = (props) => {
         }
     }
 
-    function handleFaillure(){
-        
+    function handleFaillure() {
+
     }
 
     return (
         <div className="flashCards__right">
-            <div className="flashcards__right__container" ref={flashContainerRef}>
-                <div className="flashCards__right__header">Page {length}/{props.category.data.length-1}</div>
+
+            {isStarted ? (<div className="flashcards__right__container" ref={flashContainerRef}>
+                <div className="flashCards__right__header">Page {length}/{props.category.data.length - 1}</div>
                 <div className="flashCards__right__main" onClick={(e) => handleClick(e)}>
                     {showTranslation ? props.category.data[length].ukName : props.category.data[length].frName}
-                    <br/>
+                    <br />
                     {showTranslation ? `${props.category.data[length].frName}*` : ""}
-                    </div>
+                </div>
                 <div className="flashCards__right__bottom">
                     <p>Do you want to continue ?</p>
                     <div className="flashCardsAnswer">
-                        <div className="btn" onClick={(e)=>handleFaillure(e)}>No</div>
+                        <div className="btn" onClick={(e) => handleFaillure(e)}>No</div>
                         <div className="btn" onClick={(e) => handleSubmit(e)}>Yes</div>
                     </div>
                 </div>
-            </div>
+            </div>) : (<div>
+                <div class="btn" onClick={() => setIsStarted(true)}>Start</div>
+            </div>)}
+
+
 
         </div>
     );

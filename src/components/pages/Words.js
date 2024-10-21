@@ -45,14 +45,14 @@ const Words = (props) => {
                         <img src={category.imgUrl} alt="" />
                     </div>
                 ))}
-                
+
             </div>
 
             <div className="flashCards">
                 <div className="flashCards__left">
                     <img src={categories[0].imgUrl} ref={imgRef} alt="img tigre" />
                 </div>
-                {isCategoryChoosen && <FlashCards category={currentCategory} numImg="1" />}
+                {isCategoryChoosen && <FlashCards category={currentCategory} numImg="1" isVisible={false} />}
             </div>
         </div>
     );

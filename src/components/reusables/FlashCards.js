@@ -20,14 +20,11 @@ const FlashCards = (props) => {
         }
         setShowTranslation(false);
     }
-    
+
     function handleClick(e) {
         setShowTranslation(true);
         speak(props.category.data[length].ukName);
     }
-
-    
-
 
     function pass() {
         // const heartBeat = "https://universal-soundbank.com/sounds/350.mp3";
@@ -55,6 +52,10 @@ const FlashCards = (props) => {
         }
     }
 
+    function handleFaillure(){
+        
+    }
+
     return (
         <div className="flashCards__right">
             <div className="flashcards__right__container" ref={flashContainerRef}>
@@ -67,7 +68,7 @@ const FlashCards = (props) => {
                 <div className="flashCards__right__bottom">
                     <p>Do you want to continue ?</p>
                     <div className="flashCardsAnswer">
-                        <div className="btn">No</div>
+                        <div className="btn" onClick={(e)=>handleFaillure(e)}>No</div>
                         <div className="btn" onClick={(e) => handleSubmit(e)}>Yes</div>
                     </div>
                 </div>

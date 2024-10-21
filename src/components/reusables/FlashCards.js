@@ -20,8 +20,39 @@ const FlashCards = (props) => {
         }
         setShowTranslation(false);
     }
+    
     function handleClick(e) {
         setShowTranslation(true);
+        speak(props.category.data[length].ukName);
+    }
+
+    
+
+
+    function pass() {
+        // const heartBeat = "https://universal-soundbank.com/sounds/350.mp3";
+        // const magneto = "https://universal-soundbank.com/sounds/3802.mp3";
+        // const clacquement = "https://universal-soundbank.com/sounds/2166.mp3";
+        // const audio = new Audio();
+        // audio.src = clacquement;
+        // audio.volume = 0.1; 
+        // audio.play();
+    }
+
+    function speak(text) {
+
+        // Vérifier si le navigateur supporte l'API Web Speech
+        if ('speechSynthesis' in window) {
+            // Créer une instance de SpeechSynthesisUtterance
+            const utterance = new SpeechSynthesisUtterance(text);
+            // Définir la langue sur anglais
+            utterance.lang = 'en-GB';
+
+            // Utiliser speechSynthesis pour prononcer le texte
+            window.speechSynthesis.speak(utterance);
+        } else {
+            alert('Sorry, your browser does not support speech synthesis.');
+        }
     }
 
     return (

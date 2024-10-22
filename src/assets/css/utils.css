@@ -7,8 +7,8 @@
     height: 50px;
     font-weight: 600;
     cursor: pointer;
-    position:relative;
-    z-index:10;
+    position: relative;
+    z-index: 10;
 }
 
 .bgGreen {
@@ -25,13 +25,19 @@ a {
 }
 
 .btn {
-    background-color:rgb(112,137,217);
+    background-color: rgb(112, 137, 217);
     padding: 10px;
     border-radius: 3px;
-    font-weight:600;
+    font-weight: 600;
     display: inline-block;
     cursor: pointer;
 }
-.btn:hover{
+
+.btn:hover {
     box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+
+.borderWhite {
+    border: 1px solid white;
 }

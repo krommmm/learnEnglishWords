@@ -9,8 +9,7 @@ const Words = (props) => {
     const [categoryChoice, setCategoryChoice] = useState(false);
     const [fcStatus, setFcStatus] = useState(false);
     const [showTranslation, setShowTranslation] = useState(false);
-
-
+    const [selectedCategory, setSelectedCategory] = useState(categories[0]);
 
     function handleClickImg(e) {
         // Definit le tableau de category 
@@ -25,6 +24,9 @@ const Words = (props) => {
         setLength(0);
         // reset de la translation
         setShowTranslation(false);
+
+        setSelectedCategory(categoryName);
+
     }
 
     function handleImageLoad(e) {
@@ -43,7 +45,7 @@ const Words = (props) => {
 
                 {categories.map((category) => (
                     <div key={category.name}
-                        className="words__categories__category unloaded"
+                        className={`words__categories__category unloaded ${selectedCategory === category.name ? "borderWhite" : ""}`}
                         data-category={category.name}
                         onClick={(e) => handleClickImg(e)}>
                         <img src={category.imgUrl} alt="" onLoad={(e) => handleImageLoad(e)} />

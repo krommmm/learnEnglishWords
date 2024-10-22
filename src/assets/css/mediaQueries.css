@@ -34,7 +34,10 @@
     }
 
     body .flashCards {
-        width: 90%;
+        width: 95%;
+    }
+    body .flashcards__right__container {
+        border: none;
     }
 
     body .header__right__logoArea p {
@@ -46,6 +49,9 @@
         margin-right: 30px;
         cursor: pointer;
         font-size:21px;
+    }
+    body .flashCards {
+        padding: 8px;
     }
 
 
@@ -60,6 +66,10 @@
     }
     body .header__left{
         background-color: rgba(0, 0, 0, .5);
+    }
+    body .flashCards__right__main {
+    margin: 0px;
+    width:100%;
     }
 }
 

@@ -30,10 +30,10 @@ const Words = (props) => {
     }
 
     function handleImageLoad(e) {
-        const container = e.target.parentNode; // Accède directement à l'élément parent
-        if (container.classList.contains("unloaded")) {
-            container.classList.remove("unloaded");
-        }
+        // const container = e.target.parentNode; // Accède directement à l'élément parent
+        // if (container.classList.contains("unloaded")) {
+        //     container.classList.remove("unloaded");
+        // }
     }
 
 
@@ -45,7 +45,7 @@ const Words = (props) => {
 
                 {categories.map((category) => (
                     <div key={category.name}
-                        className={`words__categories__category unloaded ${selectedCategory === category.name ? "borderWhite" : ""}`}
+                        className={`words__categories__category ${selectedCategory === category.name ? "borderWhite" : ""}`}
                         data-category={category.name}
                         onClick={(e) => handleClickImg(e)}>
                         <img src={category.imgUrl} alt="" onLoad={(e) => handleImageLoad(e)} />

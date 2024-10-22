@@ -45,8 +45,11 @@ header {
 }
 
 .fa-bars {
-    font-size: 28px;
+    font-size: 21px;
     display: none;
+}
+.fa-bars:hover{
+    color: #b44;
 }
 
 .navBar {

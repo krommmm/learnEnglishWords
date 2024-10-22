@@ -43,14 +43,22 @@
 
     body .fa-bars {
         display: flex;
-        margin-right: 10px;
-        cursor:pointer;
+        margin-right: 30px;
+        cursor: pointer;
+        font-size:21px;
     }
 
     body .header__right__profilArea {
         display: flex;
         justify-content: center;
         align-items: center;
+    }
+    body .nav__iconContainer img {
+        width: 45px;
+        height: 45px;
+    }
+    body .header__left{
+        background-color: rgba(0, 0, 0, .5);
     }
 }
 

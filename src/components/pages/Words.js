@@ -28,10 +28,10 @@ const Words = (props) => {
     }
 
     function handleImageLoad(e) {
-        // const container = e.target.parentNode; // Accède directement à l'élément parent
-        // if (container.classList.contains("unloaded")) {
-        //     container.classList.remove("unloaded");
-        // }
+        const container = e.target.parentNode; // Accède directement à l'élément parent
+        if (container.classList.contains("unloaded")) {
+            container.classList.remove("unloaded");
+        }
     }
 
 

@@ -1,4 +1,5 @@
 import dia from "../../assets/pictures/medals/diamond.png";
+import logo from "../../assets/pictures/logos/logo_uk.png";
 import league from "../../assets/pictures/medals/leagues.png";
 
 const Home = () => {
@@ -15,7 +16,7 @@ const Home = () => {
                 <div className="home__botttom__league">
                     <h2>Souvenez vous de plus de 1000 mots de vocabulaire !</h2>
                     <div class="btn">Commencer</div>
-                    <img src={league} alt="league diamant"/>
+                    <img src={logo} alt="league diamant"/>
 
                 </div>
             </div>

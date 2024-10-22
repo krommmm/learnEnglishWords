@@ -17,40 +17,24 @@ const FlashCards = (props) => {
         setShowTranslation(props.showTranslation);
     }, [props]);
 
-
-
-
-    // useEffect(() => {
-    //     setCurrentCategory(props.category);
-    //     setLength(parseInt(props.numImg));
-    //     props.backIsVisible(isStarted);
-    //     //setIsStarted(props.isVisible);
-    // }, [props]);
+    useEffect(() => {
+        console.log(category);
+    }, [category]);
 
     function handleYes() {
         setShowTranslation(false);
         props.backLength(length + 1);
         props.backFsStatus(true);
 
-        if(length+1===category.data.length){
-              props.backFsStatus(false);
+        // validation de l'objet
+        const modifiedCategory = { ...category };
+        modifiedCategory.data[length].validation = true;
+        props.backCategory(modifiedCategory);
+
+        if (length + 1 === category.data.length) {
+            props.backFsStatus(false);
+            props.backLength(0);
         }
-      
-
-        // if (length + 1 < currentCategory.data.length) {
-
-        //     props.backNumImg(length);
-
-        //     const category = currentCategory.data;
-        //     category[length].validation = true;
-        //     props.backCurrentCategory(category);
-        // }
-        // if (length + 1 === currentCategory.data.length) {
-
-        //     props.backNumImg(length);
-        //     setIsStarted(false);
-        // }
-        // setShowTranslation(false);
     }
 
     function handleClick(e) {
@@ -72,6 +56,13 @@ const FlashCards = (props) => {
 
     }
 
+    function startFlashCards(){
+        const virginCategory = {...category};
+        virginCategory.data.forEach((categoryArr)=>categoryArr.validation=false);
+        props.backCategory(virginCategory);
+        props.backFsStatus(true);
+    }
+
     return (
         <div className="flashCards__right">
             {fcStatus ? (<div className="flashcards__right__container">
@@ -89,7 +80,7 @@ const FlashCards = (props) => {
                     </div>
                 </div>
             </div>) : (<div>
-                <div className="btn" onClick={() => setFcStatus(true)}>Start</div>
+                <div className="btn" onClick={() =>startFlashCards()}>Start</div>
             </div>)}
 
 

@@ -10,9 +10,7 @@ const Words = (props) => {
     const [fcStatus, setFcStatus] = useState(false);
     const [showTranslation, setShowTranslation] = useState(false);
 
-    useEffect(()=>{
 
-    },[]);
 
     function handleClickImg(e) {
         // Definit le tableau de category 
@@ -51,7 +49,7 @@ const Words = (props) => {
                     <img src={categories[0].imgUrl} ref={imgRef} alt="img category" />
                 </div>
                 <FlashCards category={category} fcStatus={fcStatus} length={length} categoryChoice={categoryChoice} showTranslation={showTranslation}
-                 backLength={setLength} backFsStatus={setFcStatus} backTranslation={setShowTranslation} />
+                            backCategory={setCategory} backLength={setLength} backFsStatus={setFcStatus} backTranslation={setShowTranslation}/>
             </div>
         </div>
     );

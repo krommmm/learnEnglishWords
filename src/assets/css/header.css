@@ -43,12 +43,13 @@ header {
     font-size: 22px;
     border-radius: 15px;
 }
-.fa-bars{
+
+.fa-bars {
     font-size: 28px;
-    display:none;
+    display: none;
 }
 
-.navBar{
+.navBar {
     position: fixed;
     top: 0;
     left: 0;
@@ -58,10 +59,11 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index:99999;
+    z-index: 99999;
 }
-.navBarContainer{
-    min-width:300px;
-    width:80%;
+
+.navBarContainer {
+    min-width: 300px;
+    width: 80%;
     padding: 15px;
 }

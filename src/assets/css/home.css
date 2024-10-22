@@ -21,7 +21,7 @@ h1 {
     color: white;
 }
 
-.home__botttom{
+.home__botttom {
     position: relative;
 }
 
@@ -33,7 +33,7 @@ h1 {
     color: black;
     width: 600px;
     border-radius: 15px;
-    background-color: rgba(255,255,255,.8);
+    background-color: rgba(255, 255, 255, .8);
     padding: 50px;
     align-self: center;
     border: 5px solid black;

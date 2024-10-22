@@ -10,7 +10,10 @@
     margin: 5px;
     cursor: pointer;
     overflow: hidden;
-    background-color: red;
+ /* background: rgb(30,31,34);
+background: linear-gradient(90deg, rgba(30,31,34,1) 26%, rgba(54,58,63,1) 81%);  */
+background-color:white;
+box-shadow: rgba(62, 62, 209, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     position: relative;
 }
 

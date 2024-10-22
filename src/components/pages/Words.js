@@ -1,5 +1,5 @@
 import FlashCards from "../reusables/FlashCards";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 
 const Words = (props) => {
     const imgRef = useRef(null);

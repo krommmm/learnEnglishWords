@@ -25,7 +25,7 @@ const Header = () => {
                     <p>Envie d'apprendre du vocabulaire ?</p>
                 </div>
                 <div className="header__right__profilArea">
-                <i class="fa-solid fa-bars" onClick={(e)=>setToggleNav(!toggleNav)}></i>
+                <i className="fa-solid fa-bars" onClick={(e)=>setToggleNav(!toggleNav)}></i>
                     <img src={avatarVierge} onClick={() => setIsClicked(true)} alt="logo avatar" />
                     {isClicked && <ModalProfil toogle={setIsClicked} isClicked={isClicked}/>}
                     

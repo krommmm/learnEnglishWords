@@ -109,7 +109,7 @@ function App() {
     })
 
     setCategories(categories);
-  }, [categories]);
+  }, []);
 
   return (
     <Router>

@@ -68,7 +68,7 @@
 
 @media screen and (max-width:532px) {
     body .home__botttom__league img {
-        display: none;
+        /* display: none; */
     }
 
     body .modalProfil_contenent {

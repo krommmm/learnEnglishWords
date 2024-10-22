@@ -1,6 +1,4 @@
 import "./assets/css/index.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
 
 import Header from "./components/reusables/Header";
 import Home from "./components/pages/Home";
@@ -66,6 +64,10 @@ import { entertainmentData } from "./data/entertainmentData";
 import { toolsData } from "./data/toolsData";
 import { travelTermsData } from "./data/travelTermsData";
 import { cinemaData } from "./data/cinemaData";
+
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { useState, useEffect } from "react";
 
 function App() {
 

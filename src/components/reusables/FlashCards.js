@@ -17,9 +17,7 @@ const FlashCards = (props) => {
         setShowTranslation(props.showTranslation);
     }, [props]);
 
-    useEffect(() => {
-        console.log(category);
-    }, [category]);
+
 
     function handleYes() {
         setShowTranslation(false);

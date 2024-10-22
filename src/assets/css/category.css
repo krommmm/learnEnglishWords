@@ -15,38 +15,31 @@
 }
 
 .unloaded::before {
-    content: 'Chargement'; /* Ajouter le texte ici */
+    content: '';
     position: absolute;
-    color: white;
-    height: 20px;
-    width: 150px;
-    padding: 15px;
-    background-color: rgba(0,0,0);
-
-
-    top: 30px;
-    left: 0; /* Assure-toi que le texte est bien positionné */
-    display: flex; /* Facilite le centrage du texte */
-    align-items: center; /* Centre verticalement */
-    justify-content: center; /* Centre horizontalement */
+    height: 150px;
+    width: 20px;
+    background-color: rgba(255, 255, 255, .3);
+    box-shadow: 0 0 10px #fff;
+    filter: blur(1px);
+    top: -30px;
     transition: .4s;
-    transform: translateX(-100px);
+    transform: translateX(-100px) rotate(-45deg);
     animation-name: effetVitre;
-    animation-duration: 2000ms;
+    animation-duration:1400ms;
     animation-iteration-count: infinite;
 }
-
 /* .words__categories__category .unloaded::before{
     animation:none;
 } */
 
 @keyframes effetVitre {
     0% {
-        transform: translateX(-100px);
+        transform: translateX(-100px) rotate(-45deg);
     }
 
     100% {
-        transform: translateX(100px);
+        transform: translateX(180px) rotate(-45deg);
     }
 }
 

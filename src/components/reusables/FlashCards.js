@@ -66,9 +66,9 @@ const FlashCards = (props) => {
             {fcStatus ? (<div className="flashcards__right__container">
                 <div className="flashCards__right__header">Page {length + 1}/{category.data.length}</div>
                 <div className="flashCards__right__main" onClick={(e) => handleClick(e)}>
-                    {showTranslation ? category.data[length].ukName : category.data[length].frName}
+                    <p className="showCaseName">{showTranslation ? category.data[length].ukName : category.data[length].frName}</p>
                     <br />
-                    {showTranslation ? `${category.data[length].frName}*` : ""}
+                    <p className="backCaseName">{showTranslation ? `${category.data[length].frName}*` : ""}</p>
                 </div>
                 <div className="flashCards__right__bottom">
                     <p>Do you want to continue ?</p>
@@ -78,7 +78,7 @@ const FlashCards = (props) => {
                     </div>
                 </div>
             </div>) : (<div>
-                <div className="btn" onClick={() =>startFlashCards()}>Start</div>
+                <div className="btn-container"><div className="btn btn-openFc" onClick={() =>startFlashCards()}>Start</div></div>
             </div>)}
 
 

@@ -10,10 +10,10 @@
     margin: 5px;
     cursor: pointer;
     overflow: hidden;
- /* background: rgb(30,31,34);
+    /* background: rgb(30,31,34);
 background: linear-gradient(90deg, rgba(30,31,34,1) 26%, rgba(54,58,63,1) 81%);  */
-background-color:white;
-box-shadow: rgba(62, 62, 209, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    background-color: white;
+    box-shadow: rgba(62, 62, 209, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
     position: relative;
 }
 
@@ -29,9 +29,10 @@ box-shadow: rgba(62, 62, 209, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3
     transition: .4s;
     transform: translateX(-100px) rotate(-45deg);
     animation-name: effetVitre;
-    animation-duration:1400ms;
+    animation-duration: 1400ms;
     animation-iteration-count: infinite;
 }
+
 /* .words__categories__category .unloaded::before{
     animation:none;
 } */
@@ -87,6 +88,7 @@ box-shadow: rgba(62, 62, 209, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3
     width: 50%;
     height: 100%;
     padding-left: 7px;
+    position: relative;
 }
 
 .flashCards__left img {
@@ -97,6 +99,23 @@ box-shadow: rgba(62, 62, 209, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3
 
 .flashCards {
     display: flex;
+}
+
+.btn-openFc {}
+
+.btn-container {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .flashCards__right__container {
@@ -148,4 +167,20 @@ box-shadow: rgba(62, 62, 209, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3
 
 .flashCards__right__main {
     cursor: pointer;
+    margin: 30px auto auto;
+    border: 2px solid rgb(30, 31, 34);
+    background-color: white;
+    width: 80%;
+    color:black;
+    display:flex;
+    flex-direction:column;
+}
+
+.showCaseName{
+    font-size: 25px;
+    margin-bottom:15px;
+}
+
+.backCaseName{
+
 }

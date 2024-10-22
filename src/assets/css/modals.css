@@ -49,6 +49,7 @@
 .modalProfil__avatars {
     display: flex;
     margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .modalProfil__avatars img {

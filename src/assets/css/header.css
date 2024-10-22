@@ -48,7 +48,8 @@ header {
     font-size: 21px;
     display: none;
 }
-.fa-bars:hover{
+
+.fa-bars:hover {
     color: #b44;
 }
 
@@ -61,12 +62,39 @@ header {
     background-color: rgba(0, 0, 0, 0.9);
     display: flex;
     justify-content: center;
-    align-items: center;
     z-index: 99999;
+    animation-name: navBarOpen;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes navBarOpen {
+    0% {
+        top: 0;
+        left: 100%;
+        right: 0;
+        bottom: 0;
+    }
+
+    100% {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 }
 
 .navBarContainer {
     min-width: 300px;
     width: 80%;
     padding: 15px;
+}
+
+.navBarContainer__header {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navBarContainer__header .fa-xmark {
+    cursor: pointer;
 }

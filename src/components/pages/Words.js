@@ -27,6 +27,14 @@ const Words = (props) => {
         setShowTranslation(false);
     }
 
+    function handleImageLoad(e) {
+        const container = e.target.parentNode; // Accède directement à l'élément parent
+        if (container.classList.contains("unloaded")) {
+            container.classList.remove("unloaded");
+        }
+    }
+
+
     return (
         <div className="words">
             <h2>Categories</h2>
@@ -35,10 +43,10 @@ const Words = (props) => {
 
                 {categories.map((category) => (
                     <div key={category.name}
-                        className="words__categories__category"
+                        className="words__categories__category unloaded"
                         data-category={category.name}
                         onClick={(e) => handleClickImg(e)}>
-                        <img src={category.imgUrl} alt="" />
+                        <img src={category.imgUrl} alt="" onLoad={(e) => handleImageLoad(e)} />
                     </div>
                 ))}
 
@@ -49,7 +57,7 @@ const Words = (props) => {
                     <img src={categories[0].imgUrl} ref={imgRef} alt="img category" />
                 </div>
                 <FlashCards category={category} fcStatus={fcStatus} length={length} categoryChoice={categoryChoice} showTranslation={showTranslation}
-                            backCategory={setCategory} backLength={setLength} backFsStatus={setFcStatus} backTranslation={setShowTranslation}/>
+                    backCategory={setCategory} backLength={setLength} backFsStatus={setFcStatus} backTranslation={setShowTranslation} />
             </div>
         </div>
     );

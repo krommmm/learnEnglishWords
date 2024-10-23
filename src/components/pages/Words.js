@@ -1,5 +1,5 @@
 import FlashCards from "../reusables/FlashCards";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 const Words = (props) => {
     const imgRef = useRef(null);
@@ -10,6 +10,14 @@ const Words = (props) => {
     const [fcStatus, setFcStatus] = useState(false);
     const [showTranslation, setShowTranslation] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+
+
+    useEffect(() => {
+        // @maj category -> replace part in categories
+        let myCategories = [...categories];
+        props.backCategories(myCategories);
+    }, [category]);
+
 
     function handleClickImg(e) {
         // Definit le tableau de category 
@@ -29,14 +37,6 @@ const Words = (props) => {
 
     }
 
-    function handleImageLoad(e) {
-        // const container = e.target.parentNode; // Accède directement à l'élément parent
-        // if (container.classList.contains("unloaded")) {
-        //     container.classList.remove("unloaded");
-        // }
-    }
-
-
     return (
         <div className="words">
             <h2>Categories</h2>
@@ -48,7 +48,7 @@ const Words = (props) => {
                         className={`words__categories__category ${selectedCategory === category.name ? "borderWhite" : ""}`}
                         data-category={category.name}
                         onClick={(e) => handleClickImg(e)}>
-                        <img src={category.imgUrl} alt="" onLoad={(e) => handleImageLoad(e)} />
+                        <img src={category.imgUrl} alt="" />
                     </div>
                 ))}
 

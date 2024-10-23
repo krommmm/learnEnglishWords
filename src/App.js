@@ -102,14 +102,16 @@ function App() {
 
 
   useEffect(() => {
-    categories.forEach((category) => {
-      return category.data.forEach((dataCat) => {
-        dataCat.validation = false;
+    if (!categories[0].data.validation) {
+      categories.forEach((category) => {
+        return category.data.forEach((dataCat) => {
+          dataCat.validation = false;
+        })
       })
-    })
 
-    setCategories(categories);
-  }, []);
+      setCategories(categories);
+    }
+  }, []); 
 
   return (
     <Router>
@@ -119,7 +121,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/words" element={<Words categories={categories} backCategories={setCategories} />} />
-          <Route path="/suivi" element={<Suivi />} />
+          <Route path="/suivi" element={<Suivi categories={categories}/>} />
           <Route path="/options" element={<Options />} />
           <Route path="/words" element={<Words />} />
           <Route path="/times" element={<Times />} />

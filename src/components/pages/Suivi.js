@@ -3,21 +3,14 @@ import { useState, useEffect, useRef } from "react";
 const Suivi = (props) => {
 
     const [categoryPercent, setCategoryPercent] = useState(0);
+    const [arrCategoryPercent, setarrCategoryPercent] = useState([]);
     const fillRef = useRef(null);
+    const circleRef = useRef(null);
 
     useEffect(() => {
         const scaleY = categoryPercent / 100;
         fillRef.current.style.transform = `scaleY(${scaleY})`;
     }, [categoryPercent]);
-
-    // function setProgressCharacter(percentage) {
-    //     const fillElement = document.querySelector('.fill');
-    //     const scaleY = percentage / 100;  // Calcule l'échelle Y en fonction du %
-    //     fillElement.style.transform = `scaleY(${scaleY})`;
-    //   }
-
-    //   // Exemple : remplir à 75%
-    //   setProgressCharacter(5);
 
 
     useEffect(() => {
@@ -25,25 +18,60 @@ const Suivi = (props) => {
         const categoriesValidated = props.categories.filter((category) => {
             return category.data.every((cell) => cell.validation === true);
         });
-
-        // traduire la length en %
         const categoriesValidatedLength = categoriesValidated.length;
         const diviseur = 100 / 27;
         const categoriesValidatedLengthEnPourcentage = Math.round(categoriesValidatedLength * diviseur);
-        console.log(categoriesValidatedLengthEnPourcentage);
         setCategoryPercent(categoriesValidatedLengthEnPourcentage);
 
     }, []);
+
+    useEffect(() => {
+        const categoriesPercentages = [];
+        props.categories.forEach((category) => {
+            const categoryLength = category.data.length;
+            const diviseur = 100 / categoryLength;
+            const nbValidated = category.data.filter((cat) => cat.validation === true).length;
+            categoriesPercentages.push({ name: category.name, percentil: Math.round(nbValidated * diviseur) });
+            setarrCategoryPercent([...categoriesPercentages]);
+        })
+
+    }, []);
+
+
+
 
 
     return (
 
         <>
-            {console.log(props.categories[17].data)}
+
             <div className="suivi">
-                <div className="suivi__pictorialFractionChart">
-                    <div className="progress-character">
-                        <div className="fill" ref={fillRef}></div>
+                <h2>Suivi</h2>
+                <p className="description">Suivez vos progrès</p>
+                <div className="suivi__graphs">
+                    <div className="suivi__pictorialFractionChart">
+                        <p className="suivi__pictorialFractionChart__percentage">{categoryPercent}%</p>
+                        <div className="progress-character">
+                            <div className="fill" ref={fillRef}></div>
+                        </div>
+                    </div>
+                    <div className="suivi__donutsChart">
+                        {arrCategoryPercent.map((category) => (
+                            <div key={category.name}>
+                                <div className="progress-circle">
+                                    <div className="circle"  ref={circleRef} style={{ background: `conic-gradient(#3498db 0 ${category.percentil}%, #e0e0e0 ${category.percentil}%)`}}>
+                                        <div className="mask full">
+                                            <div className="fill"></div>
+                                        </div>
+                                        <div className="mask half">
+                                            <div className="fill"></div>
+                                        </div>
+                                        <div className="inside-circle">{category.percentil}%</div> 
+                                    </div>
+                                    <p>{category.name}</p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

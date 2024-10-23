@@ -4,6 +4,7 @@ const Suivi = (props) => {
 
     const [categoryPercent, setCategoryPercent] = useState(0);
     const [arrCategoryPercent, setarrCategoryPercent] = useState([]);
+    const [grandGroupesState, setGrandGroupeState] = useState([]);
     const fillRef = useRef(null);
     const circleRef = useRef(null);
 
@@ -33,9 +34,39 @@ const Suivi = (props) => {
             const nbValidated = category.data.filter((cat) => cat.validation === true).length;
             categoriesPercentages.push({ name: category.name, percentil: Math.round(nbValidated * diviseur) });
             setarrCategoryPercent([...categoriesPercentages]);
-        })
-
+        });
     }, []);
+
+
+    useEffect(() => {
+        const grandGroupesNames = [
+            { name: "maison et vie quotidienne", data: ["house", "bedrooms", "kitchen", "tools", "clothings"] },
+            { name: "nature et environnement", data: ["animals", "vegetation", "fruits", "vegetables", "weather"] },
+            { name: "culture, arts et divertissements", data: ["arts", "cinema", "entertainment", "education", "sport"] },
+            { name: "voyages et lieux", data: ["places", "city", "transports", "travel", "travelTerms"] },
+            { name: "corps et émotions", data: ["body", "internalBodyParts", "emotions", "orientation", "connectives"] },
+        ];
+   
+  
+        const grandGroupesArray = [];
+       
+        grandGroupesNames.forEach((groupe)=>{
+            const groupeEnCours = [];
+            arrCategoryPercent.forEach((category)=>{
+                if(groupe.data.includes(category.name)){
+                    groupeEnCours.push(category.percentil);
+                }
+            });
+        
+            let sum=0;
+            groupeEnCours.forEach((cell)=>sum+=cell);
+            grandGroupesArray.push({name:groupe.name, percentil:sum/groupeEnCours.length});
+        });
+        setGrandGroupeState([...grandGroupesArray]);
+
+
+    }, [arrCategoryPercent]);
+
 
 
 
@@ -56,17 +87,17 @@ const Suivi = (props) => {
                         </div>
                     </div>
                     <div className="suivi__donutsChart">
-                        {arrCategoryPercent.map((category) => (
+                        {grandGroupesState.map((category) => (
                             <div key={category.name}>
                                 <div className="progress-circle">
-                                    <div className="circle"  ref={circleRef} style={{ background: `conic-gradient(#3498db 0 ${category.percentil}%, #e0e0e0 ${category.percentil}%)`}}>
+                                    <div className="circle" ref={circleRef} style={{ background: `conic-gradient(#3498db 0 ${category.percentil}%, #e0e0e0 ${category.percentil}%)` }}>
                                         <div className="mask full">
                                             <div className="fill"></div>
                                         </div>
                                         <div className="mask half">
                                             <div className="fill"></div>
                                         </div>
-                                        <div className="inside-circle">{category.percentil}%</div> 
+                                        <div className="inside-circle">{category.percentil}%</div>
                                     </div>
                                     <p>{category.name}</p>
                                 </div>
@@ -85,6 +116,7 @@ const Suivi = (props) => {
 
 
 export default Suivi;
+
 
 
 // Maison et vie quotidienne :

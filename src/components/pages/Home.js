@@ -1,4 +1,4 @@
-import logo from "../../assets/pictures/logos/logo_uk.png";
+import logo from "../../assets/pictures/logos/aaa.png";
 
 const Home = () => {
 

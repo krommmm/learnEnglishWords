@@ -79,6 +79,20 @@
         margin: 0px;
         width: 100%;
     }
+
+    body .suivi__pictorialFractionChart {
+        position: absolute;
+        top: -74px;
+        right: 0;
+    }
+
+    body .progress-character {
+        transform: scale(0.2);
+    }
+
+    body .suivi__pictorialFractionChart__percentage {
+        top: 142px;
+    }
 }
 
 @media screen and (max-width:632px) {
@@ -99,5 +113,15 @@
 
     body .modalProfil_contenent {
         width: 90%;
+    }
+}
+
+@media screen and (max-width:480px) {
+   body .suivi__donutsChart {
+        justify-content: center;
+    }
+
+    body .suivi__graphs {
+        align-self: center;
     }
 }

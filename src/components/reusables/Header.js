@@ -1,4 +1,4 @@
-import logoUk from "../../assets/pictures/logos/logo_uk.png";
+import logoUk from "../../assets/pictures/logos/aaa.png";
 import avatarVierge from "../../assets/pictures/avatars/avatar_vierge.png";
 import { NavLink } from "react-router-dom";
 import ModalProfil from "../others/ModalProfil";

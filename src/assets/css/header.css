@@ -32,7 +32,7 @@ header {
     border-radius: 50%;
 }
 .header__right__profilArea{
-    z-index: 999999;
+    z-index: 800;
 }
 
 .header__right__profilArea img {

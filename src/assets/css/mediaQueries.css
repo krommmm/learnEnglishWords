@@ -26,6 +26,9 @@
 
     body .words__categories {
         justify-content: center;
+        max-height: 300px;
+        scroll-behavior: auto;
+        overflow-y: scroll;
     }
 
     body .words {
@@ -36,6 +39,7 @@
     body .flashCards {
         width: 95%;
     }
+
     body .flashcards__right__container {
         border: none;
     }
@@ -48,8 +52,9 @@
         display: flex;
         margin-right: 30px;
         cursor: pointer;
-        font-size:21px;
+        font-size: 21px;
     }
+
     body .flashCards {
         padding: 8px;
     }
@@ -60,16 +65,19 @@
         justify-content: center;
         align-items: center;
     }
+
     body .nav__iconContainer img {
         width: 45px;
         height: 45px;
     }
-    body .header__left{
+
+    body .header__left {
         background-color: rgba(0, 0, 0, .5);
     }
+
     body .flashCards__right__main {
-    margin: 0px;
-    width:100%;
+        margin: 0px;
+        width: 100%;
     }
 }
 

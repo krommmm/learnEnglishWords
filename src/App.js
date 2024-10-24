@@ -62,14 +62,28 @@ import { travelData } from "./data/travelData";
 import { artsData } from "./data/artsData";
 import { entertainmentData } from "./data/entertainmentData";
 import { toolsData } from "./data/toolsData";
-import { travelTermsData } from "./data/travelTermsData";
+import { travelTermsData } from "./data/travelTermsData"; 
 import { cinemaData } from "./data/cinemaData";
+
+import avatar1 from "./assets/pictures/avatars/avatar_1.png"
+import avatar2 from "./assets/pictures/avatars/avatar2.png";
+import avatar3 from "./assets/pictures/avatars/avatar3.png";
+import avatar4 from "./assets/pictures/avatars/avatar_4.png";
+import avatarVierge from "./assets/pictures/avatars/avatar_vierge.png";
 
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function App() {
+
+  const [profil, setProfil] = useState(avatarVierge);
+
+  useEffect(()=>{
+    setProfil(profil);
+  },[profil]);
+
+
 
   const [categories, setCategories] = useState([
     { name: "animals", data: animalsData, imgUrl: tigre },
@@ -115,7 +129,7 @@ function App() {
 
   return (
     <Router>
-      <Header />
+      <Header profil={profil} backProfil={setProfil}/>
       <main>
         <Nav />
         <Routes>

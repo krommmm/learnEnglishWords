@@ -9,8 +9,8 @@ const ModalProfil = (props) => {
 
     const [toggle, setToggle] = useState(false);
     const [toggleImg, setToggleImg] = useState(false);
-    const [avatarSelected, setAvatarSelected] = useState(1);
-    const ballContainerRef = useRef(null);
+    const [avatarSelected, setAvatarSelected] = useState();
+    const ballContainerRef = useRef(null); 
     const ballRef = useRef(null);
     const markRef = useRef(null);
     const minusRef = useRef(null);
@@ -27,15 +27,19 @@ const ModalProfil = (props) => {
         switch (avatarSelected) {
             case 1:
                 avatar_1.current.classList.add("avatarSelected");
+                props.backProfil(avatar1);
                 break;
             case 2:
                 avatar_2.current.classList.add("avatarSelected");
+                props.backProfil(avatar2);
                 break;
             case 3:
                 avatar_3.current.classList.add("avatarSelected");
+                props.backProfil(avatar3);
                 break;
             case 4:
                 avatar_4.current.classList.add("avatarSelected");
+                props.backProfil(avatar4);
                 break;
 
             default: avatar_1.current.classList.add("avatarSelected");

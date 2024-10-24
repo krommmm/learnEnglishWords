@@ -2,16 +2,21 @@ import logoUk from "../../assets/pictures/logos/aaa.png";
 import avatarVierge from "../../assets/pictures/avatars/avatar_vierge.png";
 import { NavLink } from "react-router-dom";
 import ModalProfil from "../others/ModalProfil";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavBar from "../others/NavBar";
 
-const Header = () => {
+const Header = (props) => {
 
     const [isClicked, setIsClicked] = useState(false);
     const [toggleNav, setToggleNav] = useState(false);
+    const [profil, setProfil] = useState(props.profil);
+
+    useEffect(()=>{
+        setProfil(profil);
+    },[profil]);
 
 
-    // CREER UN COMPOSANT NOUVEAU MENU POS ABS
+    // CREER UN COMPOSANT NOUVEAU MENU POS ABS 
     return (
         <header>
             <div className="header__left">
@@ -26,8 +31,8 @@ const Header = () => {
                 </div>
                 <div className="header__right__profilArea">
                 <i className="fa-solid fa-bars" onClick={(e)=>setToggleNav(!toggleNav)}></i>
-                    <img src={avatarVierge} onClick={() => setIsClicked(true)} alt="logo avatar" />
-                    {isClicked && <ModalProfil toogle={setIsClicked} isClicked={isClicked}/>}
+                    <img src={profil} onClick={() => setIsClicked(true)} alt="logo avatar" />
+                    {isClicked && <ModalProfil profil={profil} toogle={setIsClicked} isClicked={isClicked} backProfil={setProfil}/>}
                     
                 </div>
                 {toggleNav && <NavBar  backState={setToggleNav}/>}

@@ -7,10 +7,10 @@ import { useState, useEffect } from "react";
 
 const ModalProfil = (props) => {
 
-    const [toggle, setToggle] = useState(false);
     const [toggleImg, setToggleImg] = useState(false);
+    const [restart, setRestart] = useState(props.restart);
     const [avatarSelected, setAvatarSelected] = useState();
-    const ballContainerRef = useRef(null); 
+    const ballContainerRef = useRef(null);
     const ballRef = useRef(null);
     const markRef = useRef(null);
     const minusRef = useRef(null);
@@ -22,8 +22,16 @@ const ModalProfil = (props) => {
     const avatar_4 = useRef(null);
 
     useEffect(() => {
-        Array.from(avatars.current.children).forEach((avatar)=>avatar.classList.remove("avatarSelected"));
-        
+        setRestart(restart);
+    }, [restart]);
+
+
+
+
+
+    useEffect(() => {
+        Array.from(avatars.current.children).forEach((avatar) => avatar.classList.remove("avatarSelected"));
+
         switch (avatarSelected) {
             case 1:
                 avatar_1.current.classList.add("avatarSelected");
@@ -44,10 +52,10 @@ const ModalProfil = (props) => {
 
             default: avatar_1.current.classList.add("avatarSelected");
         }
-    }, [avatarSelected,toggleImg]);
+    }, [avatarSelected, toggleImg]);
 
     function handleRestart(e) {
-        if (toggle === false) {
+        if (restart === false) {
             ballContainerRef.current.classList.add("animationBallContainer");
             ballContainerRef.current.classList.remove("animationBallContainerBack");
 
@@ -84,25 +92,22 @@ const ModalProfil = (props) => {
             minusRef.current.style.display = "flex";
             checkRef.current.style.display = "none";
         }
+        setRestart(!restart);
 
-        setToggle(!toggle);
     }
 
     function handleLeave() {
-        setToggle(false);
+        props.backRestart(false);
         props.toogle(!props.isClicked);
     }
 
     function handleSubmit() {
-        if (toggle) {
-            console.log("Restart from Zéro");
-
-        }
-        console.log(avatarSelected);
+        console.log(`Submit -> restart = ${restart}`);
+        props.backRestart(restart);
         props.toogle(!props.isClicked);
     }
 
-    function changeAvatar(nb){
+    function changeAvatar(nb) {
         setAvatarSelected(nb);
         setToggleImg(!toggleImg);
     }
@@ -116,10 +121,10 @@ const ModalProfil = (props) => {
 
                     <h2>Choisissez un profil</h2>
                     <div className="modalProfil__avatars" ref={avatars}>
-                        <img src={avatar1} alt="avatar 1" ref={avatar_1} onClick={()=>changeAvatar(1)}/>
-                        <img src={avatar2} alt="avatar 2" ref={avatar_2} onClick={()=>changeAvatar(2)}/>
-                        <img src={avatar3} alt="avatar 3" ref={avatar_3} onClick={()=>changeAvatar(3)}/>
-                        <img src={avatar4} alt="avatar 4" ref={avatar_4} onClick={()=>changeAvatar(4)}/>
+                        <img src={avatar1} alt="avatar 1" ref={avatar_1} onClick={() => changeAvatar(1)} />
+                        <img src={avatar2} alt="avatar 2" ref={avatar_2} onClick={() => changeAvatar(2)} />
+                        <img src={avatar3} alt="avatar 3" ref={avatar_3} onClick={() => changeAvatar(3)} />
+                        <img src={avatar4} alt="avatar 4" ref={avatar_4} onClick={() => changeAvatar(4)} />
                     </div>
                     <div className="modalProfil_contenent__restart">
                         <h3>Recommencer depuis le début</h3>

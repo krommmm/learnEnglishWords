@@ -10,10 +10,13 @@ const Header = (props) => {
     const [isClicked, setIsClicked] = useState(false);
     const [toggleNav, setToggleNav] = useState(false);
     const [profil, setProfil] = useState(props.profil);
+    const [restart, setRestart] = useState(props.restart);
 
-    useEffect(()=>{
+    useEffect(() => {
         setProfil(profil);
-    },[profil]);
+        setRestart(restart);
+        props.backRestart(restart);
+    }, [profil, restart, props]);
 
 
     // CREER UN COMPOSANT NOUVEAU MENU POS ABS 
@@ -21,21 +24,21 @@ const Header = (props) => {
         <header>
             <div className="header__left">
                 <NavLink className="nav__iconContainer" to="/">
-                <img src={logoUk} alt="logo uk" />
+                    <img src={logoUk} alt="logo uk" />
                 </NavLink>
             </div>
             <div className="header__right">
                 <div className="header__right__logoArea">
-                
+
                     <p>Envie d'apprendre du vocabulaire ?</p>
                 </div>
                 <div className="header__right__profilArea">
-                <i className="fa-solid fa-bars" onClick={(e)=>setToggleNav(!toggleNav)}></i>
+                    <i className="fa-solid fa-bars" onClick={(e) => setToggleNav(!toggleNav)}></i>
                     <img src={profil} onClick={() => setIsClicked(true)} alt="logo avatar" />
-                    {isClicked && <ModalProfil profil={profil} toogle={setIsClicked} isClicked={isClicked} backProfil={setProfil}/>}
-                    
+                    {isClicked && <ModalProfil profil={profil} toogle={setIsClicked} isClicked={isClicked} backProfil={setProfil} restart={restart} backRestart={setRestart} />}
+
                 </div>
-                {toggleNav && <NavBar  backState={setToggleNav}/>}
+                {toggleNav && <NavBar backState={setToggleNav} />}
 
             </div>
         </header>

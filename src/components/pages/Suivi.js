@@ -11,7 +11,7 @@ const Suivi = (props) => {
     useEffect(() => {
         const scaleY = categoryPercent / 100;
         fillRef.current.style.transform = `scaleY(${scaleY})`;
-    }, [categoryPercent]);
+    }, [categoryPercent,]);
 
 
     useEffect(() => {
@@ -66,10 +66,6 @@ const Suivi = (props) => {
 
 
     }, [arrCategoryPercent]);
-
-
-
-
 
 
     return (

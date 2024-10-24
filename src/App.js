@@ -62,7 +62,7 @@ import { travelData } from "./data/travelData";
 import { artsData } from "./data/artsData";
 import { entertainmentData } from "./data/entertainmentData";
 import { toolsData } from "./data/toolsData";
-import { travelTermsData } from "./data/travelTermsData"; 
+import { travelTermsData } from "./data/travelTermsData";
 import { cinemaData } from "./data/cinemaData";
 
 import avatar1 from "./assets/pictures/avatars/avatar_1.png"
@@ -78,10 +78,15 @@ import { useState, useEffect } from "react";
 function App() {
 
   const [profil, setProfil] = useState(avatarVierge);
+  const [restart, setRestart] = useState(false);
 
-  useEffect(()=>{
+  useEffect(() => {
     setProfil(profil);
-  },[profil]);
+  }, [profil]);
+
+
+
+
 
 
 
@@ -115,8 +120,9 @@ function App() {
     { name: "cinema", data: cinemaData, imgUrl: cinema }]);
 
 
+
   useEffect(() => {
-    if (!categories[0].data.validation) {
+    if ("validation" in categories[0].data || restart === true) {
       categories.forEach((category) => {
         return category.data.forEach((dataCat) => {
           dataCat.validation = false;
@@ -125,17 +131,19 @@ function App() {
 
       setCategories(categories);
     }
-  }, []); 
+    setRestart(false);
+
+  }, [restart, categories]);
 
   return (
     <Router>
-      <Header profil={profil} backProfil={setProfil}/>
+      <Header profil={profil} backProfil={setProfil} restart={restart} backRestart={setRestart} />
       <main>
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/words" element={<Words categories={categories} backCategories={setCategories} />} />
-          <Route path="/suivi" element={<Suivi categories={categories}/>} />
+          <Route path="/suivi" element={<Suivi key={restart} categories={categories} />} />
           <Route path="/options" element={<Options />} />
           <Route path="/words" element={<Words />} />
           <Route path="/times" element={<Times />} />

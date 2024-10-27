@@ -52,7 +52,7 @@ const Words = (props) => {
                     </div>
                 ))}
 
-            </div>
+            </div> 
 
             <div className="flashCards">
                 <div className="flashCards__left">

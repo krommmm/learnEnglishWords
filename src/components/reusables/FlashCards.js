@@ -1,14 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 const FlashCards = (props) => {
-
-    const [fcStatus, setFcStatus] = useState(); // btn start ou flashCard
+    const [fcStatus, setFcStatus] = useState(); 
     const [length, setLength] = useState();
     const [category, setCategory] = useState();
-    const [showTranslation, setShowTranslation] = useState(); // montrer la traduction ou pas
+    const [showTranslation, setShowTranslation] = useState(); 
     const [categoryChoice, setCategoryChoice] = useState();
     const [tempoCategory, setTempoCategory] = useState([]);
-    const [toggle, setToggle] = useState(false);
+    const timeoutRef = useRef(null);
 
     useEffect(() => {
         setFcStatus(props.fcStatus);
@@ -18,17 +17,14 @@ const FlashCards = (props) => {
         setShowTranslation(props.showTranslation);
     }, [props]);
 
-
     function handleYes() {
         setShowTranslation(false);
         props.backLength(length + 1);
         props.backFsStatus(true);
-        // validation de l'objet
+        
         const modifiedCategory = { ...category };
-   
         modifiedCategory.data[length].validation = true;
         setTempoCategory(modifiedCategory);
-        // props.backCategory(modifiedCategory);
 
         if (length + 1 === category.data.length) {
             props.backCategory(tempoCategory);
@@ -47,9 +43,22 @@ const FlashCards = (props) => {
         }
     }
 
+    function debounce(func, delay) {
+        return function () {
+            clearTimeout(timeoutRef.current);
+            timeoutRef.current = setTimeout(() => {
+                if (typeof func === 'function') {
+                    func();
+                }
+            }, delay);
+        };
+    }
+
     function handleClick(e) {
         setShowTranslation(true);
-        speak(category.data[length].ukName);
+        if (category && category.data && category.data[length]) {
+            debounce(() => speak(category.data[length].ukName), 300)();
+        }
     }
 
     function speak(text) {
@@ -88,9 +97,6 @@ const FlashCards = (props) => {
             </div>) : (<div>
                 <div className="btn-container"><div className="btn btn-openFc" onClick={() => startFlashCards()}>Start</div></div>
             </div>)}
-
-
-
         </div>
     );
 };

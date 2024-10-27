@@ -1,4 +1,5 @@
 import logo from "../../assets/pictures/logos/aaa.png";
+import { NavLink } from "react-router-dom";
 
 const Home = () => {
 
@@ -13,7 +14,7 @@ const Home = () => {
             <div className="home__botttom">
                 <div className="home__botttom__league">
                     <h2>Souvenez vous de plus de 1000 mots de vocabulaire !</h2>
-                    <div className="btn">Commencer</div>
+                    <NavLink to="/words"> <div className="btn">Commencer</div></NavLink>
                     <img src={logo} alt="league diamant" />
 
                 </div>

@@ -4,10 +4,7 @@ import Header from "./components/reusables/Header";
 import Home from "./components/pages/Home";
 import Suivi from "./components/pages/Suivi";
 import Nav from "./components/reusables/Nav";
-import Options from "./components/pages/Options";
-import Times from "./components/pages/Times";
 import Words from "./components/pages/Words";
-import Verbes from "./components/pages/Verbe";
 
 import tigre from "./assets/pictures/category/tigre.jpg";
 import bedroom from "./assets/pictures/category/bedroom.jpg";
@@ -144,10 +141,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/words" element={<Words categories={categories} backCategories={setCategories} />} />
           <Route path="/suivi" element={<Suivi key={restart} categories={categories} />} />
-          <Route path="/options" element={<Options />} />
           <Route path="/words" element={<Words />} />
-          <Route path="/times" element={<Times />} />
-          <Route path="/verbes" element={<Verbes />} />
         </Routes>
       </main>
     </Router>

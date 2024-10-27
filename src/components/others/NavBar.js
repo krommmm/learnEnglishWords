@@ -24,35 +24,15 @@ const NavBar = (props) => {
 
                 </div>
                 <div>
-                    <NavLink className="nav__iconContainer bgBlue" onClick={() => handleClick()} to="/words">
+                    <NavLink className="nav__iconContainer bgGreenPal" onClick={() => handleClick()} to="/words">
                         <div className="squareIcon">Words</div>
                     </NavLink>
 
                 </div>
 
                 <div>
-                    <NavLink className="nav__iconContainer bgGreenPal" onClick={() => handleClick()} to="/times">
-                        <div className="squareIcon">Times</div>
-                    </NavLink>
-
-                </div>
-                <div>
-                    <NavLink className="nav__iconContainer bgBordeaux" onClick={() => handleClick()} to="/verbes">
-                        <div className="squareIcon">Verbes</div>
-                    </NavLink>
-
-                </div>
-
-
-                <div>
-                    <NavLink className="nav__iconContainer bgCramoisi" onClick={() => handleClick()} to="/suivi">
+                    <NavLink className="nav__iconContainer bgBordeaux" onClick={() => handleClick()} to="/suivi">
                         <div className="squareIcon">Suivi</div>
-                    </NavLink>
-
-                </div>
-                <div>
-                    <NavLink className="nav__iconContainer bgJaune" onClick={() => handleClick()} to="/options">
-                        <div className="squareIcon">Options</div>
                     </NavLink>
 
                 </div>

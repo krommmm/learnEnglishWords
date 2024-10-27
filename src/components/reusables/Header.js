@@ -23,8 +23,8 @@ const Header = (props) => {
     return (
         <header>
             <div className="header__left">
-                <NavLink className="nav__iconContainer" to="/">
-                    <img src={logoUk} alt="logo uk" />
+                <NavLink className="nav__iconContainer bgBlue"  to="/">
+                    <div className="squareIcon bgBlue">A</div>
                 </NavLink>
             </div>
             <div className="header__right">

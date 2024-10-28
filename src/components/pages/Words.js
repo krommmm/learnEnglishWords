@@ -10,6 +10,7 @@ const Words = (props) => {
     const [fcStatus, setFcStatus] = useState(false);
     const [showTranslation, setShowTranslation] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(categories[0]);
+    const [panier,setPanier] = useState(props.panier);
 
 
     useEffect(() => {
@@ -17,6 +18,10 @@ const Words = (props) => {
         let myCategories = [...categories];
         props.backCategories(myCategories);
     }, [category]);
+
+    useEffect(()=>{
+        props.backPanier(panier); 
+    },[panier]);
 
 
     function handleClickImg(e) {
@@ -58,8 +63,8 @@ const Words = (props) => {
                 <div className="flashCards__left">
                     <img src={categories[0].imgUrl} ref={imgRef} alt="img category" />
                 </div>
-                <FlashCards category={category} fcStatus={fcStatus} length={length} categoryChoice={categoryChoice} showTranslation={showTranslation}
-                    backCategory={setCategory} backLength={setLength} backFsStatus={setFcStatus} backTranslation={setShowTranslation} />
+                <FlashCards category={category} fcStatus={fcStatus} length={length} categoryChoice={categoryChoice} showTranslation={showTranslation} panier={panier}
+                    backCategory={setCategory} backLength={setLength} backFsStatus={setFcStatus} backTranslation={setShowTranslation} backPanier={setPanier}/>
             </div>
         </div>
     );

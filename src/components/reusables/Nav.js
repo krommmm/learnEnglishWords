@@ -24,6 +24,12 @@ const Nav = () => {
                 </NavLink>
                 <div className="nav__description">Suivi</div>
             </div>
+            <div>
+                <NavLink className="nav__iconContainer bgJaune" to="/panier">
+                    <div className="squareIcon">P</div>
+                </NavLink>
+                <div className="nav__description">Panier</div>
+            </div>
         </nav>
     );
 };

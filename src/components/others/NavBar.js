@@ -15,7 +15,7 @@ const NavBar = (props) => {
         <div className="navBar">
             <div className="navBarContainer">
                 <div className="navBarContainer__header">
-                    <i class="fa-solid fa-xmark" onClick={(handleQuit)}></i>
+                    <i className="fa-solid fa-xmark" onClick={(handleQuit)}></i>
                 </div>
                 <div>
                     <NavLink className="nav__iconContainer bgBlue" onClick={() => handleClick()} to="/">
@@ -34,7 +34,11 @@ const NavBar = (props) => {
                     <NavLink className="nav__iconContainer bgBordeaux" onClick={() => handleClick()} to="/suivi">
                         <div className="squareIcon">Suivi</div>
                     </NavLink>
-
+                </div>
+                <div>
+                    <NavLink className="nav__iconContainer bgBordeaux" onClick={() => handleClick()} to="/panier">
+                        <div className="squareIcon">Panier</div>
+                    </NavLink>
                 </div>
             </div>
         </div>

@@ -5,6 +5,7 @@ import Home from "./components/pages/Home";
 import Suivi from "./components/pages/Suivi";
 import Nav from "./components/reusables/Nav";
 import Words from "./components/pages/Words";
+import Panier from "./components/pages/Panier";
 
 import tigre from "./assets/pictures/category/tigre.jpg";
 import bedroom from "./assets/pictures/category/bedroom.jpg";
@@ -76,12 +77,22 @@ function App() {
 
   const [profil, setProfil] = useState(avatarVierge);
   const [restart, setRestart] = useState(false);
+  const [togglePanier, setTogglePanier] = useState(false);
+  const [panier, setPanier] = useState([]);
 
   useEffect(() => {
     setProfil(profil);
   }, [profil]);
 
 
+  useEffect(() => {
+    const panierSansDoublons = panier.filter((cell, index, arr) => arr.indexOf(cell) === index);
+
+    if (panier.length !== panierSansDoublons.length) {
+      setPanier(panierSansDoublons);
+      setTogglePanier(!togglePanier);
+    }
+  }, [panier]);
 
 
 
@@ -139,9 +150,10 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/words" element={<Words categories={categories} backCategories={setCategories} />} />
+          <Route path="/words" element={<Words categories={categories} backCategories={setCategories} panier={panier} backPanier={setPanier} />} />
           <Route path="/suivi" element={<Suivi key={restart} categories={categories} />} />
           <Route path="/words" element={<Words />} />
+          <Route path="/panier" element={<Panier key={togglePanier} panier={panier} backPanier={setPanier} />} />
         </Routes>
       </main>
     </Router>

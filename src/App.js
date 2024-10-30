@@ -78,7 +78,7 @@ function App() {
   const [profil, setProfil] = useState(avatarVierge);
   const [restart, setRestart] = useState(false);
   const [togglePanier, setTogglePanier] = useState(false);
-  const [panier, setPanier] = useState([]);
+  const [panierIds, setPanierIds] = useState([]);
 
   useEffect(() => {
     setProfil(profil);
@@ -86,13 +86,13 @@ function App() {
 
 
   useEffect(() => {
-    const panierSansDoublons = panier.filter((cell, index, arr) => arr.indexOf(cell) === index);
+    const panierSansDoublons = panierIds.filter((cell, index, arr) => arr.indexOf(cell) === index);
 
-    if (panier.length !== panierSansDoublons.length) {
-      setPanier(panierSansDoublons);
+    if (panierIds.length !== panierSansDoublons.length) {
+      setPanierIds(panierSansDoublons);
       setTogglePanier(!togglePanier);
     }
-  }, [panier]);
+  }, [panierIds]);
 
 
 
@@ -143,6 +143,14 @@ function App() {
 
   }, [restart, categories]);
 
+
+  useEffect(()=>{
+    console.log(".....");
+    console.log("App");
+    console.log(panierIds);
+    console.log("....."); 
+  },[panierIds]);
+       
   return (
     <Router>
       <Header profil={profil} backProfil={setProfil} restart={restart} backRestart={setRestart} />
@@ -150,10 +158,10 @@ function App() {
         <Nav />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/words" element={<Words categories={categories} backCategories={setCategories} panier={panier} backPanier={setPanier} />} />
+          <Route path="/words" element={<Words categories={categories} backCategories={setCategories} panierIds={panierIds} backPanierIds={setPanierIds} />} />
           <Route path="/suivi" element={<Suivi key={restart} categories={categories} />} />
           <Route path="/words" element={<Words />} />
-          <Route path="/panier" element={<Panier key={togglePanier} panier={panier} backPanier={setPanier} />} />
+          <Route path="/panier" element={<Panier key={togglePanier} backKey={setTogglePanier} categories={categories} panierIds={panierIds} backPanierIds={setPanierIds} />} />
         </Routes>
       </main>
     </Router>

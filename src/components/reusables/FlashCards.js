@@ -8,7 +8,7 @@ const FlashCards = (props) => {
     const [categoryChoice, setCategoryChoice] = useState();
     const [tempoCategory, setTempoCategory] = useState([]);
     const timeoutRef = useRef(null);
-    const [panier, setpanier] = useState(props.panier);
+    const [panierIds, setpanierIds] = useState(props.panierIds);
 
     useEffect(() => {
         setFcStatus(props.fcStatus);
@@ -16,7 +16,7 @@ const FlashCards = (props) => {
         setLength(props.length);
         setCategoryChoice(props.categoryChoice);
         setShowTranslation(props.showTranslation);
-        setpanier(props.panier);
+        setpanierIds(props.panierIds);
     }, [props]);
 
     function handleYes() {
@@ -28,7 +28,7 @@ const FlashCards = (props) => {
         modifiedCategory.data[length].validation = true;
         setTempoCategory(modifiedCategory);
 
-        if (length + 1 === category.data.length) {
+        if (length + 1 === category.data.length) { 
             props.backCategory(tempoCategory);
             props.backFsStatus(false);
             props.backLength(0);
@@ -39,9 +39,9 @@ const FlashCards = (props) => {
         setShowTranslation(false);
         props.backLength(length + 1);
         props.backFsStatus(true);
-        const currentPanier = [...panier];
+        const currentPanier = [...panierIds];
         currentPanier.push(category.data[length].id)
-        props.backPanier(currentPanier);
+        props.backPanierIds(currentPanier);
     
         if (length + 1 === category.data.length) {
             props.backFsStatus(false);

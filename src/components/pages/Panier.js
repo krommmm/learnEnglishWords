@@ -15,10 +15,10 @@ const Panier = (props) => {
 
     useEffect(() => {
         const ids = panier.map((item) => item.id);
-        
+
         if (JSON.stringify(ids) !== JSON.stringify(prevIdsRef.current)) {
-            props.backPanierIds(ids); 
-            prevIdsRef.current = ids; 
+            props.backPanierIds(ids);
+            prevIdsRef.current = ids;
         }
     }, [panier]);
 
@@ -26,7 +26,9 @@ const Panier = (props) => {
     return (
         <div className="panier">
             <h2>Panier</h2>
-            <FlashCardsPanier panier={panier} backPanier={setPanier} />
+            <div className="panier__container">
+                <FlashCardsPanier panier={panier} backPanier={setPanier} />
+            </div>
         </div>
     );
 };

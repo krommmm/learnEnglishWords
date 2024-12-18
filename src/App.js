@@ -144,12 +144,7 @@ function App() {
   }, [restart, categories]);
 
 
-  useEffect(()=>{
-    console.log(".....");
-    console.log("App");
-    console.log(panierIds);
-    console.log("....."); 
-  },[panierIds]);
+
        
   return (
     <Router>
